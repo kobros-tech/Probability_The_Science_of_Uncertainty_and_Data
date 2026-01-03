@@ -1,0 +1,32 @@
+// Network Message Tree
+digraph {
+	A [label="Start (Router A)"]
+	L1_S [label="Link1 Success
+P=0.9"]
+	L1_F [label="Link1 Fail
+P=0.1"]
+	A -> L1_S [label=0.9]
+	A -> L1_F [label=0.1]
+	L2_S [label="Link2 Success
+P=0.95"]
+	L2_F [label="Link2 Fail
+P=0.05"]
+	L1_S -> L2_S [label=0.95]
+	L1_S -> L2_F [label=0.05]
+	L3_S1 [label="Link3 Success
+P=0.8
+Message Reaches"]
+	L3_F1 [label="Link3 Fail
+P=0.2
+Message Reaches?"]
+	L2_S -> L3_S1 [label=0.8]
+	L2_S -> L3_F1 [label=0.2]
+	L3_S2 [label="Link3 Success
+P=0.8
+Message Reaches"]
+	L3_F2 [label="Link3 Fail
+P=0.2
+Message Reaches?"]
+	L2_F -> L3_S2 [label=0.8]
+	L2_F -> L3_F2 [label=0.2]
+}
